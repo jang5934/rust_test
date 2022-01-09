@@ -29,7 +29,9 @@ fn main() {
 
     // 아래와 같이 let이 빠지면 불변 변수를 수정한 것이기 때문에 컴파일러에서 오류가 난다.
     let spaces_2 = "      ";
+    /*
     spaces_2 = spaces_2.len();
+    */
 
     // 데이터 유형
     // u32 와 같은 키워드를 변수 우측에 붙여주는데, 이것이 데이터 타입.
@@ -189,16 +191,19 @@ fn controlCommand_1() {
 
     // 아래와 같은 조건문은 오류가 난다.
     // 조건문의 반환값은 오로지 bool 값만 받는다.
+    /*
     if number {
         println!("number is three");
     }
-
+    */
     // 아래와 같이 쓰기도 한다.
     let condition = true;
-    let newNumber = if contidtion { 1 } else { 2 };
+    let newNumber = if condition { 1 } else { 2 };
     println!("The value of number is: {}", newNumber);
     // 다만 위의 변수에 들어가는 값이 분기마다 다른 데이터 타입이라면 오류가 발생한다.
-    let newNumber = if contidtion { 1 } else { "two" };
+    /*
+    let newNumber = if condition { 1 } else { "two" };
+    */
     println!("The value of number is: {}", newNumber);
 
     // 그 외에도 match를 활용한 분기 처리 커맨드를 제공해주는 것으로 알고 있는데 이건 나중에 공부해보자.
@@ -210,15 +215,19 @@ fn loopTest() {
     // rust에는 loop, for, while 등의 반복문이 있다.
 
     // 아래는 무한 반복문이다.
+    // 아래의 무한 반복문 때문에 아래의 코드들이 unreachable 하기 때문에
+    // 이건 잠깐 주석처리 하겠다.
+    /*
     loop {
         println!("inf loop");
     }
+    */
 
     // 그러나 아래와 같이 활용하기도 한다.
     // 맨 마지막 값을 반환한다고 위에서 배웠듯, result에는 20이 들어간다.
+    let mut counter = 0;
     let result = loop {
         counter += 1;
-
         if counter == 10 {
             break counter * 2;
         }
